@@ -13,8 +13,8 @@ let val = 0
 
 
 const projects = [
-    { id: 1, title: 'List 1' },
-    { id: 2, title: 'List 2' }]
+    { id: 1, title: 'Extreme' },
+    { id: 2, title: 'World Wide' }]
 
 
 projectNumber.value = projects.length + 1
@@ -22,16 +22,16 @@ projectNumber.value = projects.length + 1
 const array = [
     {
         data: [
-            'add the sign up page',
-            'add the login page',
-            'add the navbar page'
+            'Lorem ipsum dolor sit amet',
+            'consectetuer adipiscing elit',
+            'Maecenas porttitor congue massa'
         ]
     },
     {
         data: [
-            '2 add the sign up page',
-            '2 add the login page',
-            '2 add the navbar page'
+            'Donec ut est in lectus consequat consequat',
+            'Aliquam erat volutpat',
+            'Sed at lorem in nunc porta tristique'
         ]
     }
 ]
