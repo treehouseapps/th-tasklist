@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasklist</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="divider">
+        <div class="left">
+            <div class="title">List of Projects</div>
+            <button id="addProjectBtn" onclick="openPmodal()">+ Add Project</button>
+            <div class="left-list" id="left-list">
+
+            </div>
+        </div>
+        <div class="right">
+            <div class="right-up">
+                <p>List of Tasks</p>
+                <button id="addTaskBtn" onclick="openTmodal()">+ Add Task</button>
+            </div>
+            <div>
+                <div class="tasklist" id="tasklist">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="projectModal" id="pModal">
+        <div class="x" id="x" onclick="closeModal()">X</div>
+        <div class="divide">
+            <div> <input type="text" id="projectNumber" class="projectNumber" disabled></div>
+            <div> <input type="text" placeholder="Enter Projct Name" id="projectName" class="projectName"></div>
+        </div>
+        <input type="text" placeholder="Enter project Task" id="projectTask" class="projectTask">
+        <button onclick="addproject()">+ Add Project</button>
+    </div>
+    <div class="taskModal" id="tModal">
+        <div class="x" id="x" onclick="closeModal()">X</div>
+        <div> <input type="text" placeholder="Enter Task Name" id="taskName" class="taskName"></div>
+        <button onclick="submitTask()">+ Add Project</button>
+    </div>
+</body>
+<script src="script.js"></script>
+
+</html>
