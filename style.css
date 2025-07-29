@@ -29,15 +29,21 @@
 
 .left .left-list p {
     box-shadow: 1px 1px 5px 2px lightgray;
-    padding: 5%;
     cursor: pointer;
     transform: scale(1rem);
+    align-items: center;
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+    gap: 0.5rem
 }
 
 .left .left-list p:hover {
     box-shadow: 1px 1px 5px 2px gray;
-    /* padding-left: 20px; */
     transition: .5s;
+}
+
+.tasks {
+    padding: 5%;
 }
 
 /* right */
@@ -78,6 +84,16 @@
     width: 100%;
     justify-content: space-between;
     align-items: center;
+}
+
+.right .task {
+    border: 1px solid;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+}
+
+.right .task div {
+    border: 1px solid red;
 }
 
 .left button,
@@ -124,6 +140,12 @@
     right: 2%;
     font-weight: bolder;
     font-family: cursive;
+}
+
+.left-list .x {
+    color: red;
+    font-weight: bolder;
+    padding: 0.5rem;
 }
 
 .projectModal .divide {

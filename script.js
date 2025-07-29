@@ -68,7 +68,11 @@ const list = () => {
     leftList.innerHTML = ''
     projects.forEach((project) => {
         const p = document.createElement('p')
-        p.innerHTML = `<div  onclick="select(${project.id})">${project.title}</div>`
+        p.innerHTML = `<div class="tasks"
+        onclick="select(${project.id})">
+        ${project.title}</div>
+        <div class="x"
+        onclick="deleteProject(${project.id})">X</div>`
         leftList.appendChild(p)
     })
 }
@@ -82,7 +86,9 @@ const displayList = (current) => {
         div.className = 'task'
         div.innerHTML = `
     <p>${task}</p>
-    <button>Mark</button>
+    <div>
+    <button>Mark</button> 
+    <button class="x">X</button></div>
     `
         tasklist.appendChild(div)
     })
@@ -101,4 +107,12 @@ const closeModal = () => {
     taskName.value = ''
     tModal.style.display = 'none'
     pModal.style.display = 'none'
+}
+const deleteProject = (id) => {
+    const confirm = prompt('press 1 for Yes and 0 for No')
+    if (confirm === 1) {
+        projects.splice(id - 1, 1)
+    }
+    saveToStorage()
+    list()
 }
