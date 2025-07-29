@@ -17,16 +17,16 @@ const projects = JSON.parse(localStorage.getItem('projects')) || [
 const array = JSON.parse(localStorage.getItem('tasks')) || [
     {
         data: [
-            'Lorem ipsum dolor sit amet',
-            'consectetuer adipiscing elit',
-            'Maecenas porttitor congue massa'
+            { text: 'Lorem ipsum dolor sit amet', marked: false },
+            { text: 'consectetuer adipiscing elit', marked: true },
+            { text: 'Maecenas porttitor congue massa', marked: true }
         ]
     },
     {
         data: [
-            'Donec ut est in lectus consequat consequat',
-            'Aliquam erat volutpat',
-            'Sed at lorem in nunc porta tristique'
+            { text: 'Donec ut est in lectus consequat consequat', marked: true },
+            { text: 'Aliquam erat volutpat', marked: true },
+            { text: 'Sed at lorem in nunc porta tristique', marked: true },
         ]
     }
 ]
@@ -35,7 +35,7 @@ const addproject = () => {
     if (projectName.value == '' || projectTask.value == '') { return }
     projects.push({ id: parseInt(projectNumber.value), title: projectName.value })
     array.push({
-        data: [`${projectTask.value}`]
+        data: [{ text: projectTask.value, marked: true }]
     })
     list()
     closeModal()
@@ -43,7 +43,7 @@ const addproject = () => {
 }
 const submitTask = () => {
     if (taskName.value == '') { return }
-    array[val - 1].data.push(taskName.value)
+    array[val - 1].data.push({ text: taskName.value, marked: true })
     displayList(array[val - 1].data)
     closeModal()
     saveToStorage()
@@ -81,14 +81,17 @@ list()
 const displayList = (current) => {
     tasklist.innerHTML = ''
     addTaskBtn.style.display = 'block'
-    current.forEach((task) => {
+    current.forEach((task, i) => {
         const div = document.createElement('div')
         div.className = 'task'
+
+        const markedClass = task.marked ? 'marked' : ''
+
         div.innerHTML = `
-    <p>${task}</p>
+            <p class="${markedClass}">${task.text}</p>
     <div>
-    <button>Mark</button> 
-    <button class="x">X</button></div>
+    <button onclick="markTask(${i})">Mark</button> 
+    <button class="x" onclick="deleteTask(${i})">X</button></div>
     `
         tasklist.appendChild(div)
     })
@@ -115,4 +118,9 @@ const deleteProject = (id) => {
     }
     saveToStorage()
     list()
+}
+const markTask = (index) => {
+    array[val - 1].data[index].marked = !array[val - 1].data[index].marked
+    saveToStorage()
+    displayList(array[val - 1].data)
 }

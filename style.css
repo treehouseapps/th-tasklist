@@ -87,13 +87,11 @@
 }
 
 .right .task {
-    border: 1px solid;
-    display: grid;
-    grid-template-columns: 1fr 5fr;
+    border-bottom: 1px solid;
 }
 
 .right .task div {
-    border: 1px solid red;
+    width: 20%;
 }
 
 .left button,
@@ -142,7 +140,8 @@
     font-family: cursive;
 }
 
-.left-list .x {
+.left-list .x,
+.right .x {
     color: red;
     font-weight: bolder;
     padding: 0.5rem;
@@ -192,4 +191,9 @@
 .projectModal,
 .taskModal {
     display: none;
+}
+
+.marked {
+    text-decoration: line-through;
+    color: red;
 }
