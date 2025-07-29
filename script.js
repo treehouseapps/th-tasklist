@@ -81,7 +81,7 @@ list()
 const displayList = (current) => {
     tasklist.innerHTML = ''
     addTaskBtn.style.display = 'block'
-    current.forEach((task, i) => {
+    current.forEach((task, index) => {
         const div = document.createElement('div')
         div.className = 'task'
 
@@ -90,8 +90,8 @@ const displayList = (current) => {
         div.innerHTML = `
             <p class="${markedClass}">${task.text}</p>
     <div>
-    <button onclick="markTask(${i})">Mark</button> 
-    <button class="x" onclick="deleteTask(${i})">X</button></div>
+    <button onclick="markTask(${index})">Mark</button> 
+    <button class="x" onclick="deleteTask(${index})">X</button></div>
     `
         tasklist.appendChild(div)
     })
@@ -113,14 +113,24 @@ const closeModal = () => {
 }
 const deleteProject = (id) => {
     const confirm = prompt('press 1 for Yes and 0 for No')
-    if (confirm === 1) {
+    if (confirm === '1') {
         projects.splice(id - 1, 1)
+        saveToStorage()
+        list()
     }
-    saveToStorage()
-    list()
 }
 const markTask = (index) => {
     array[val - 1].data[index].marked = !array[val - 1].data[index].marked
     saveToStorage()
     displayList(array[val - 1].data)
+}
+const deleteTask = (index) => {
+    const confirm = prompt('press 1 for Yes and 0 for No')
+    if (confirm === '1') {
+        array[val - 1].data.splice(index, 1)
+        console.log()
+        saveToStorage()
+        displayList(array[val - 1].data)
+    }
+
 }
