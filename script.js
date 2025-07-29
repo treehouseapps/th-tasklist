@@ -10,11 +10,11 @@ const tModal = document.getElementById('tModal')
 
 let val = 0
 
-const projects = [
+const projects = JSON.parse(localStorage.getItem('projects')) || [
     { id: 1, title: 'Extreme' },
     { id: 2, title: 'World Wide' }]
 
-const array = [
+const array = JSON.parse(localStorage.getItem('tasks')) || [
     {
         data: [
             'Lorem ipsum dolor sit amet',
@@ -39,12 +39,19 @@ const addproject = () => {
     })
     list()
     closeModal()
+    saveToStorage()
 }
 const submitTask = () => {
     if (taskName.value == '') { return }
     array[val - 1].data.push(taskName.value)
     displayList(array[val - 1].data)
     closeModal()
+    saveToStorage()
+}
+
+const saveToStorage = () => {
+    localStorage.setItem('projects', JSON.stringify(projects))
+    localStorage.setItem('tasks', JSON.stringify(array))
 }
 
 if (val === 0) {
