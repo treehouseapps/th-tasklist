@@ -103,8 +103,9 @@
 .projectModal,
 .taskModal {
     position: absolute;
-    top: 30%;
-    left: 40%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     box-shadow: 1px 1px 15px 2px lightgray;
     padding: 3rem;
     border-radius: 1rem;
@@ -113,10 +114,6 @@
     display: grid;
     border: none;
     grid-template-rows: 1fr;
-}
-
-.taskModal {
-    top: 30%;
 }
 
 .projectModal .x,

@@ -7,17 +7,12 @@ const projectTask = document.getElementById('projectTask')
 const taskName = document.getElementById('taskName')
 const pModal = document.getElementById('pModal')
 const tModal = document.getElementById('tModal')
-const x = document.getElementById('x')
 
 let val = 0
-
 
 const projects = [
     { id: 1, title: 'Extreme' },
     { id: 2, title: 'World Wide' }]
-
-
-projectNumber.value = projects.length + 1
 
 const array = [
     {
@@ -52,7 +47,7 @@ const submitTask = () => {
     closeModal()
 }
 
-if (val == 0) {
+if (val === 0) {
     tasklist.innerHTML = `<div class="empty">No Task !</div>`
     addTaskBtn.style.display = 'none'
 }
@@ -87,6 +82,7 @@ const displayList = (current) => {
 
 }
 const openPmodal = () => {
+    projectNumber.value = projects.length + 1
     pModal.style.display = 'grid'
 }
 const openTmodal = () => {
