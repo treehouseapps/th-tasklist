@@ -76,6 +76,7 @@ const list = () => {
         leftList.appendChild(p)
     })
 }
+
 list()
 
 const displayList = (current) => {
