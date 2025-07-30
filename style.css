@@ -114,6 +114,7 @@
     transition: 0.2s;
 }
 
+/* modal * /
 .projectModal,
 .taskModal {
     position: absolute;
