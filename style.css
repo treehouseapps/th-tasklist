@@ -106,7 +106,13 @@
     background-color: white;
 }
 
-
+.left button:hover,
+.right .right-up button:hover,
+.right .task button:hover,
+.taskModal button:hover {
+    transform: scale(1.1);
+    transition: 0.2s;
+}
 
 /* modal * /
 .projectModal,
