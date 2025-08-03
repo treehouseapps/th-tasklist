@@ -77,7 +77,6 @@ const list = () => {
     })
 }
 
-list()
 
 const displayList = (current) => {
     tasklist.innerHTML = ''
