@@ -120,7 +120,11 @@ const deleteProject = (id) => {
         list()
     }
 }
-
+const markTask = (index) => {
+    array[val - 1].data[index].marked = !array[val - 1].data[index].marked
+    saveToStorage()
+    displayList(array[val - 1].data)
+}
 const deleteTask = (index) => {
     const confirm = prompt('press 1 for Yes and 0 for No')
     if (confirm === '1') {
